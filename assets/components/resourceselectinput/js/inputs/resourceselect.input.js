@@ -18,7 +18,7 @@
             this.filter = dom.find('.contentblocks-field-resourceselect input');
             var contextkey = this.filter.data('contextkey');
             var template = this.filter.data('template');
-            var id = this.filter.data('id');
+            var id = (Preview && Preview.resource && Preview.resource.isRevision) ? Preview.resource.isRevision : this.filter.data('id');
             this.filter.on('keyup', $.proxy(function() {
                 this.updateList(this.filter.val(),contextkey,template,id);
                 this.select.prop("size", 10);
